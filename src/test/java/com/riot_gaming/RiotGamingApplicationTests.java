@@ -1,4 +1,4 @@
-package com.example.riot_gaming;
+package com.riot_gaming;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
