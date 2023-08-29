@@ -45,7 +45,7 @@
 
 
 ## ERD 
-![image](https://github.com/Raccoonmen/Riot_Gaming/assets/108695511/4dfd8740-85f8-433d-85ed-782f17f5f14e)
+![777](https://github.com/Raccoonmen/Riot_Gaming/assets/108695511/85b5b7c9-4b25-4100-adb2-6aab0cea5870)
 
 
 ## Trouble Shooting
