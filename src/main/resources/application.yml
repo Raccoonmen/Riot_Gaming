@@ -1,1 +1,18 @@
+spring:
+  datasource:
+    password: 11223344
+    username: root
+    url: jdbc:mysql://localhost:3305/riot_project
+  jpa:
+    database: mysql
+    show-sql: true
+    properties:
+      hibernate:
+        ddl-auto: update
+        dialect: org.hibernate.dialect.MySQL8Dialect
+riot:
+  key: RGAPI-934bcf39-eaaf-4f0d-9703-30c8d50560ad
 
+security:
+  user:
+    password: 1122
