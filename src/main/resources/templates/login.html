@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>로그인</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .layout {
+      width: 400px; /* form의 너비를 조절 */
+      padding: 20px;
+      background-color: #fff;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    form {
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    h2.login {
+      font-weight: bold; /* 굵게 설정 */
+    }
+
+    input[type="text"], input[type="password"] {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    button[type="submit"] {
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      padding: 10px 20px;
+      font-size: 18px;
+      cursor: pointer;
+    }
+
+    button[type="submit"]:hover {
+      background-color: #0056b3;
+    }
+
+    .signup-link {
+      margin-top: 10px;
+    }
+
+    .signup-link a, p {
+      text-decoration: underline; /* 밑줄 추가 */
+      color: #666; /* 회색으로 설정 */
+      font-size: 14px; /* 작게 설정 */
+    }
+  </style>
+</head>
+<body>
+
+<div class="layout">
+  <form action="/auth/login" method="post" enctype="multipart/form-data">
+    <h2 class="login">로그인</h2>
+    <input name="username" type="text" placeholder="사용자 아이디를 입력하세요">
+    <input name="password" type="password" placeholder="사용자 비밀번호를 입력하세요">
+    <button type="submit">로그인</button>
+    <div class="signup-link">
+      <p>앗! 계정이 없으신가요? <a
+          href="http://localhost:8080/auth/signup">회원가입 하러
+        가기</a></p>
+    </div>
+  </form>
+</div>
+
+</body>
+</html>

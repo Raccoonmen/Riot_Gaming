@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>회원가입</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .layout {
+      width: 400px;
+      padding: 20px;
+      background-color: #fff;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    form {
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    h2.signup {
+      font-weight: bold;
+    }
+
+    .permissions {
+      display: flex;
+      width: 60%; /* 더 넓은 공간으로 설정 */
+      flex-direction: column;
+      align-items: center;
+      border: 1px solid #ccc;
+      padding: 10px;
+      border-radius: 5px;
+      margin-bottom: 20px; /* 간격을 늘림 */
+      margin-top: 40px; /* 간격을 늘림 */
+    }
+
+    .permission-label {
+      margin-top: 10px; /* 더 큰 간격으로 설정 */
+    }
+
+    .radio-group {
+      display: flex;
+      flex-direction: row;
+    }
+
+    .radio-label {
+      margin-right: 20px; /* 더 큰 간격으로 설정 */
+    }
+
+    input[type="radio"] {
+      margin-right: 5px;
+    }
+
+    input[type="text"],
+    input[type="password"] {
+      width: 80%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    button[type="submit"] {
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      padding: 10px 20px;
+      font-size: 18px;
+      cursor: pointer;
+    }
+
+    button[type="submit"]:hover {
+      background-color: #0056b3;
+    }
+
+    .login-link {
+      margin-top: 20px; /* 더 큰 간격으로 설정 */
+    }
+
+    .login-link a {
+      text-decoration: underline;
+      color: #666;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="layout">
+  <form action="/auth/signup" method="post" enctype="multipart/form-data">
+    <h2 class="signup">회원가입</h2>
+    <input name="username" type="text" placeholder="사용자 아이디를 입력하세요">
+    <input name="password" type="password" placeholder="사용자 비밀번호를 입력하세요">
+    <input name="riotId" type="text" placeholder="라이엇 아이디를 입력하세요">
+
+    <div class="permissions">
+      <h3>관리자 이십니까?</h3>
+      <div class="radio-group">
+        <div class="permission-label">
+          <input type="radio" id="admin_yes" name="roles" value="ROLE_ALL">
+          <label class="radio-label" for="admin_yes">네</label>
+        </div>
+        <div class="permission-label">
+          <input type="radio" id="admin_no" name="roles" value="ROLE_READ,ROLE_WRITE">
+          <label class="radio-label" for="admin_no">아니오</label>
+        </div>
+      </div>
+    </div>
+
+    <button type="submit">작성완료</button>
+    <div class="login-link">
+      <p>이미 계정이 있으신가요? <a href="#">로그인 페이지로 가기</a></p>
+    </div>
+  </form>
+</div>
+
+</body>
+</html>
