@@ -1,11 +1,20 @@
 spring:
+  thymeleaf:
+    prefix: classpath:/templates/
+    suffix: .html
   datasource:
     password: 11223344
     username: root
     url: jdbc:mysql://localhost:3305/riot_project
+  redis:
+    host: localhost
+    port: 6379
+
   jpa:
     database: mysql
     show-sql: true
+    hibernate:
+      ddl-auto: update
     properties:
       hibernate:
         ddl-auto: update
@@ -16,3 +25,6 @@ riot:
 security:
   user:
     password: 1122
+
+jwt:
+  secret: ZGF5b25lLXNwcmluZy1ib290LWRpdmlkZW5kLXByb2plY3QtdHV0b3JpYWwtand0LXNlY3JldC1rZXk=

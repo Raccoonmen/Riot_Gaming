@@ -1,7 +1,7 @@
 package com.riot_gaming.service;
 
-import com.riot_gaming.domain.Summoner;
-import com.riot_gaming.repository.SummonerRepository;
+import com.riot_gaming.persist.Entity.SummonerEntity;
+import com.riot_gaming.persist.SummonerRepository;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
@@ -36,19 +36,8 @@ public class GameDataService {
   }
 
 
-  public void searchFightRecord(String gameId){
-    
-
-
-
-  }
-
-
-
-
-
   /*
-  파싱된 값을 이용해서 DB에 저장한다.
+  3. 파싱된 값을 이용해서 DB에 저장한다.
   Domain에 있는 Summoner를 통해서 DB에 parse한 데이터들을 매칭해서 set 한 다음
   repository로 save해준다.
   */
@@ -57,20 +46,20 @@ public class GameDataService {
 
     Map<String, Object> parseSummoner = parseSummoner(summonerData);
 
-    Summoner nowSummoner = new Summoner();
-    nowSummoner.setId(parseSummoner.get("id").toString());
-    nowSummoner.setAccount_id(parseSummoner.get("accountId").toString());
-    nowSummoner.setPuuid(parseSummoner.get("puuid").toString());
-    nowSummoner.setName(gameId);
-    nowSummoner.setRevision_date(Long.parseLong(String.valueOf(parseSummoner.get("revisionDate"))));
-    nowSummoner.setSummoner_level(Integer.parseInt(String.valueOf(parseSummoner.get("summonerLevel"))));
+    SummonerEntity nowSummonerEntity = new SummonerEntity();
+    nowSummonerEntity.setId(parseSummoner.get("id").toString());
+    nowSummonerEntity.setAccount_id(parseSummoner.get("accountId").toString());
+    nowSummonerEntity.setPuuid(parseSummoner.get("puuid").toString());
+    nowSummonerEntity.setName(gameId);
+    nowSummonerEntity.setRevision_date(Long.parseLong(String.valueOf(parseSummoner.get("revisionDate"))));
+    nowSummonerEntity.setSummoner_level(Integer.parseInt(String.valueOf(parseSummoner.get("summonerLevel"))));
 
-    summonerRepository.save(nowSummoner);
+    summonerRepository.save(nowSummonerEntity);
 
   }
 
   /*
-   searchData에서 실질적으로 찾은 String형태의 정보를 파싱 한다.
+   2. searchData에서 실질적으로 찾은 String형태의 정보를 파싱 한다.
    파싱하는 함수를 만들어서 String을 json의 형태로 파싱 한다.
    정확하게 동작하지 않을 시를 대비아 try-catch를 사용 한다.
    성공 시에는 jsonString, 즉  JSONParser(Object타입)로 파싱 한다.
@@ -103,7 +92,7 @@ public class GameDataService {
 
 
   /*
-  데이터를 실질적으로 찾는 부분입니다.
+  1. 데이터를 실질적으로 찾는 부분입니다.
   완성된 apiURL을 통해서 해당 url에서 GET으로 response를 가져온다.
   그리고 해당 정보를 String으로 만들어서 리턴한다.
   */

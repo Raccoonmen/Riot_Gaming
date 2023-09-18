@@ -1,4 +1,4 @@
-package com.riot_gaming.domain;
+package com.riot_gaming.persist.Entity;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -10,7 +10,7 @@ import lombok.Setter;
 @Setter
 @Entity(name = "summoner")
 @NoArgsConstructor
-public class Summoner {
+public class SummonerEntity {
   @Id
   private String id;
 
